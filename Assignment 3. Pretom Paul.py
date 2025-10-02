@@ -32,7 +32,7 @@ class BaseModel:
 
 class TextGenerationModel(BaseModel):
     def __init__(self):
-        self._pipeline = pipeline("text-generation", model="AI 2.0")
+        self._pipeline = pipeline("text-generation", model="gpt2")
 
     @validate_input
     def run(self, input_text):
@@ -80,7 +80,7 @@ def explanations():
 
 def model_info():
     return {
-        "Text Generation (AI 2.0)": "AI-2.0 generates text based on prompts.",
+        "Text Generation (gpt2)": "GPT-2.0 generates text based on prompts.",
         "Image Classification (ViT)": "Vision Transformer classifies images.",
         "Text-to-Image (Stable Diffusion v1.5)": "Generates images from text prompts using Stable Diffusion."
     }
@@ -111,4 +111,5 @@ class AIApp(tb.Window):
         self.create_output_tab()
         self.create_explain_tab()
         self.create_model_tab()
+
 
